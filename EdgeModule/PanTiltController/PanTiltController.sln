@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{34036844-64E7-43A5-9151-4AD90E180989}") = "PanTiltControllerApp", "PanTiltControllerApp\PanTiltControllerApp.iotedgeproj", "{99F6D678-4D6C-4A8D-99AE-C737ED749EC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PanTiltControllerModule", "PanTiltControllerModule\PanTiltControllerModule.csproj", "{04B4D022-2771-4443-A24F-A0C049324673}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99F6D678-4D6C-4A8D-99AE-C737ED749EC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F6D678-4D6C-4A8D-99AE-C737ED749EC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F6D678-4D6C-4A8D-99AE-C737ED749EC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F6D678-4D6C-4A8D-99AE-C737ED749EC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04B4D022-2771-4443-A24F-A0C049324673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04B4D022-2771-4443-A24F-A0C049324673}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04B4D022-2771-4443-A24F-A0C049324673}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04B4D022-2771-4443-A24F-A0C049324673}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A1F409C-AF84-463B-956F-FA287A0D84CE}
+	EndGlobalSection
+EndGlobal
