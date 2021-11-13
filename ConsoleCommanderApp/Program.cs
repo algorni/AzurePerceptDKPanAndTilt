@@ -13,9 +13,29 @@ namespace ConsoleCommanderApp
         {
             Console.WriteLine("Hello Serial!");
 
-            Console.WriteLine("Opening Serial Port...");
 
-            serialPort = new SerialPort("/dev/ttyAM0", 9600, Parity.None, 8, StopBits.One);
+            Console.WriteLine("Getting the list of Serial Port...");
+
+            var serialPorts = SerialPort.GetPortNames();
+
+            string raspiSerialPortName = string.Empty;
+
+            foreach(var serialPortName in serialPorts)
+            {
+                bool contains_ttyACM = serialPortName.Contains("ttyACM");
+
+                Console.WriteLine($"{serialPortName} - potential raspi pico {contains_ttyACM}");
+
+                if (contains_ttyACM)
+                {
+                    raspiSerialPortName = serialPortName;
+                }
+            }
+
+
+            Console.WriteLine($"Opening Serial Port {raspiSerialPortName}");
+
+            serialPort = new SerialPort(raspiSerialPortName, 9600, Parity.None, 8, StopBits.One);
             serialPort.Handshake = Handshake.None;
 
             try
