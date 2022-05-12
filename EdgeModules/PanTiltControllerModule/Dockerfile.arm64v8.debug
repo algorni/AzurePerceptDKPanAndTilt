@@ -1,0 +1,31 @@
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+WORKDIR /app
+
+ARG VERSION=0.0.0-arm64
+ARG FILE_VERSION=0.0.0.0
+ARG ASSEMBLY_VERSION=0.0.0
+
+RUN echo $VERSION
+RUN echo $FILE_VERSION 
+RUN echo $ASSEMBLY_VERSION
+
+COPY . ./
+RUN dotnet publish PanTiltControllerModule -c Debug -o out -r linux-arm64 --self-contained false /p:Version=$VERSION /p:FileVersion=$FILE_VERSION /p:AssemblyVersion=$ASSEMBLY_VERSION
+
+FROM mcr.microsoft.com/dotnet/runtime:6.0-bullseye-slim-arm64v8 AS base
+
+RUN apt-get update
+RUN apt-get install -y --no-install-recommends unzip procps
+RUN rm -rf /var/lib/apt/lists/*
+
+RUN useradd -ms /bin/bash moduleuser
+RUN usermod -a -G uucp moduleuser
+USER moduleuser
+
+RUN curl -sSL https://aka.ms/getvsdbgsh | bash /dev/stdin -v latest -l ~/vsdbg
+
+FROM base
+WORKDIR /app
+COPY --from=build-env /app/out ./
+
+ENTRYPOINT ["dotnet", "PanTiltControllerModule.dll"]

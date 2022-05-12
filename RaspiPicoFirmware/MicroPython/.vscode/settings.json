@@ -1,0 +1,13 @@
+{
+    "python.languageServer": "Pylance",
+    "python.linting.pylintEnabled": false,
+    "python.analysis.extraPaths": [
+        "",
+        "c:\\Users\\algorni\\.vscode-insiders\\extensions\\joedevivo.vscode-circuitpython-0.1.17-win32-x64\\stubs",
+        "c:\\Users\\algorni\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\joedevivo.vscode-circuitpython\\bundle\\20220420\\adafruit-circuitpython-bundle-py-20220420\\lib"
+    ],
+    "circuitpython.board.version": null,
+    "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingModuleSource": "none"
+    }
+}
